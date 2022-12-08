@@ -3,6 +3,7 @@ const mysqlConnection = require("../config/config");
 
 // create controller functions - way 1
 function getAll(req,res,next){
+    console.log("ewwwwwwwwwwwwww");
 
 };
 

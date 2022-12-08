@@ -3,23 +3,24 @@ const {deleteCustomer,addCustomer,getAll,searchCustomer,updateCustomer} =require
 
 
 router.get('/getAll', async (req,res,next)=>{
-    res.send("{mesg:'hello',name:'indu'}");
+    getAll(req,res,next);
 });
 
 router.post('/add', async (req,res,next)=>{
-    res.send("successfully added");
+    addCustomer(req,res,next);
 });
 
 router.put('/update',async(req,res,next)=>{
-    res.send("successfully updated");
+    updateCustomer(req,res,next);
+ 
 });
 
 router.delete('/delete',async(req,res,next)=>{
-    res.send("Succefully deleted");
+    deleteCustomer(req,res,next);
 });
 
 router.get('/:id',async(req,res,next)=>{
-    res.send("your name is : " + req.body.name + " And Id is : " + req.body.id);
+    searchCustomer(req,res,next);
 });
 
 
