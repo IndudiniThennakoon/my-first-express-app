@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const {deleteCustomer,addCustomer,getAll,searchCustomer,updateCustomer} =require("../controller/customer.controller");
 
 
 router.get('/getAll', async (req,res,next)=>{
