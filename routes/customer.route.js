@@ -13,6 +13,10 @@ router.put('/update',async(req,res,next)=>{
     res.send("successfully updated");
 });
 
+router.delete('/delete',async(req,res,next)=>{
+    res.send("Succefully deleted");
+});
+
 
 
 module.exports = router;
