@@ -17,6 +17,10 @@ router.delete('/delete',async(req,res,next)=>{
     res.send("Succefully deleted");
 });
 
+router.get('/:id',async(req,res,next)=>{
+    res.send("your name is : " + req.body.name + " And Id is : " + req.body.id);
+});
+
 
 
 module.exports = router;
