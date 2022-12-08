@@ -9,6 +9,10 @@ router.post('/add', async (req,res,next)=>{
     res.send("successfully added");
 });
 
+router.put('/update',async(req,res,next)=>{
+    res.send("successfully updated");
+});
+
 
 
 module.exports = router;
