@@ -23,4 +23,10 @@ const searchCustomer = (req,res,next)=>{
 
 }
 
-
+module.exports = {
+    getAll,
+    addCustomer,
+    deleteCustomer,
+    updateCustomer,
+    searchCustomer
+};
