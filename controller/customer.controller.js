@@ -37,7 +37,21 @@ const addCustomer = (req, res, next) => {
     });
 };
 
-const updateCustomer = (req, res, next) => {};
+const updateCustomer = (req, res, next) => {
+    const customer = req.body;
+    mysqlConnection.query("Update CustomerTable SET Name= ?,email=?,Mobile=?,Address=? WHERE Id=?",[customer.name,customer.email,customer.mobile,customer.address,customer.Id],(err,rows,feild)=>{
+        if(!err){
+            res.status(200).json({
+                message : "Updated customer details"
+            });
+        }else{
+            res.status(404).json({
+                message: "Error Occured"
+            });
+            console.log(err);
+        }
+    });
+};
 
 const deleteCustomer = (req, res, next) => {};
 
