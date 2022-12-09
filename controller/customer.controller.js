@@ -18,12 +18,28 @@ function getAll(req, res, next) {
  
 }
 
+
+
 // create controller functions - way 2
+const addCustomer = (req, res, next) => {
+    const customers = req.body;
+    mysqlConnection.query("INSERT INTO CustomerTable(Name,email,Mobile,Address) Values (?,?,?,?)",[customers.name,customers.email,customers.mobile,customers.address],(err,rows,feild)=>{
+        if(!err){
+            res.status(200).json({
+                message : "Insert customer details"
+            });
+        }else{
+            res.status(404).json({
+                message: "Error Occured"
+            });
+            console.log(err);
+        }
+    });
+};
+
 const updateCustomer = (req, res, next) => {};
 
 const deleteCustomer = (req, res, next) => {};
-
-const addCustomer = (req, res, next) => {};
 
 const searchCustomer = (req, res, next) => {};
 
