@@ -69,7 +69,21 @@ const deleteCustomer = (req, res, next) => {
     });
 };
 
-
+const searchCustomer = (req, res, next) => {
+    const customerID =  req.body.Id;
+    mysqlConnection.query("SELECT *  FROM CustomerTable WHERE Id=?",[customerID],(err,rows,feild)=>{
+        if(!err){
+            res.status(200).json({
+                data:rows
+            });
+        }else{
+            res.status(404).json({
+                message: "Error Occured"
+            });
+            console.log(err);
+        }
+    });
+}
 
 module.exports = {
   getAll,
