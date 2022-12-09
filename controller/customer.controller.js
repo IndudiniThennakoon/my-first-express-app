@@ -4,8 +4,14 @@ const mysqlConnection = require("../config/config");
 function getAll(req, res, next) {
     mysqlConnection.query("SELECT * FROM CustomerTable",(err,rows,feild)=>{
         if(!err){
-            res.send(rows);
+            res.status(200).json({
+                data: rows,
+                message : "All customer details"
+            });
         }else{
+            res.status(404).json({
+                message: "Error Occured"
+            });
             console.log(err);
         }
     });
